@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    build: .
+    image: 'curationexperts/dc-postgres:master'
+    ports:
+      - "5432:5432"
+    volumes:
+      - "db:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_MULTIPLE_DATABASES: blacklight_yul_development,yul_dc_management_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+
+volumes:
+  db:

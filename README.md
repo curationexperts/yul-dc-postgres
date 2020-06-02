@@ -1,2 +1,4 @@
 # yul-dc-postgres
-postgres image for yul-dc project
+Postgres image for yul-dc project
+
+Creates databases for Blacklight and Management projects in a single running container. 
