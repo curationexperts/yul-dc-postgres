@@ -3,13 +3,15 @@ version: '3'
 services:
   db:
     build: .
-    image: 'curationexperts/dc-postgres:master'
+    image: 'yalelibraryit/dc-postgres:${POSTGRES_VERSION}'
     ports:
       - "5432:5432"
     volumes:
       - "db:/var/lib/postgresql/data"
     environment:
+      # This should be a comma delimited list of databases, no spaces
       POSTGRES_MULTIPLE_DATABASES: blacklight_yul_development,yul_dc_management_development
+      # Currently, the Postgres user and password for both databases must be the same.
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
 
