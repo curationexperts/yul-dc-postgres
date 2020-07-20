@@ -26,3 +26,12 @@ volumes:
   db:
 ```
 * You can either include the `POSTGRES_VERSION` in your environment file, or replace it with the Docker tag of your chosen version.
+
+## Releasing a new version
+1. Decide on a new version number. We use [semantic versioning](https://semver.org/).
+1. Look through all merged PRs since the last release and write release notes as a list of Features,
+Bug Fixes,and Other.
+1. Once CI has finished and passed on the most recent merge to the default branch,
+in the github web UI go to "Releases" and tag a new release with the right version number and the
+release notes you have prepared.
+1. Update `yul-dc-camerata` with the new version of the postgres image and submit a PR.
