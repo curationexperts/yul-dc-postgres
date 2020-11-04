@@ -2,13 +2,16 @@ version: '3'
 
 services:
   db:
+    command: /bin/bash -c '/boot.sh'
     build: .
-    image: 'yalelibraryit/dc-postgres:${POSTGRES_VERSION}'
+    image: 'yalelibraryit/dc-postgres:${POSTGRES_VERSION:-latest}'
     ports:
       - "5432:5432"
     volumes:
       - "db:/var/lib/postgresql/data"
     environment:
+      DYNATRACE_TOKEN: ${DYNATRACE_TOKEN}
+      CLUSTER_NAME: ${CLUSTER_NAME}
       # This should be a comma delimited list of databases, no spaces
       POSTGRES_MULTIPLE_DATABASES: blacklight_yul_development,yul_dc_management_development
       # Currently, the Postgres user and password for both databases must be the same.
