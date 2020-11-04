@@ -4,7 +4,7 @@ services:
   db:
     command: /bin/bash -c '/boot.sh'
     build: .
-    image: 'yalelibraryit/dc-postgres:${POSTGRES_VERSION:-latest}'
+    image: 'yalelibraryit/dc-postgres:${POSTGRES_VERSION}'
     ports:
       - "5432:5432"
     volumes:
