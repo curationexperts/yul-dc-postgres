@@ -6,3 +6,4 @@ if [ ! -z "$DYNATRACE_TOKEN" ];then
 fi
 
 su  postgres -c "/docker-entrypoint.sh postgres -c 'max_connections=500'"
+
